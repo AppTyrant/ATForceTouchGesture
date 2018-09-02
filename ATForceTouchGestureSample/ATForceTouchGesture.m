@@ -68,19 +68,19 @@
     
     if (maskPressureResult != NSEventMaskPressure)
     {
-        ATFTGLog(@"Fail, this device doesn't support force touch.");
+        //ATFTGLog(@"Fail, this device doesn't support force touch.");
         self.state = NSGestureRecognizerStateFailed;
         return;
     }
     if (self.view.isHiddenOrHasHiddenAncestor)
     {
-        ATFTGLog(@"Unexpected, got mouseDown but our view is hidden. Failing.");
+        //ATFTGLog(@"Unexpected, got mouseDown but our view is hidden. Failing.");
         self.state = NSGestureRecognizerStateFailed;
         return;
     }
     if (event.clickCount == 2)
     {
-        ATFTGLog(@"Fail, no force press for double click.");
+        //ATFTGLog(@"Fail, no force press for double click.");
         self.state = NSGestureRecognizerStateFailed;
         return;
     }
@@ -91,7 +91,7 @@
     BOOL isCommandKeyDown = (eventModifierFlagsClean & NSEventModifierFlagCommand) == NSEventModifierFlagCommand ? YES : NO;
     if (isCommandKeyDown || isShiftKeyDown || isControlKeyDown)
     {
-        ATFTGLog(@"Fail because a modifier key is down.");
+        //ATFTGLog(@"Fail because a modifier key is down.");
         self.state = NSGestureRecognizerStateFailed;
         return;
     }
@@ -136,12 +136,12 @@
             
             if (didEventPhaseEnd || didEventPhaseCancel)
             {
-                ATFTGLog(@"Fail. stage 0.");
+                //ATFTGLog(@"Fail. stage 0.");
                 self.state = NSGestureRecognizerStateFailed;
             }
             else
             {
-                ATFTGLog(@"stage 0 but didn't end or cancel yet...unexpected. Failing anyway.");
+                //ATFTGLog(@"stage 0 but didn't end or cancel yet...unexpected. Failing anyway.");
                 self.state = NSGestureRecognizerStateFailed;
             }
         }
