@@ -37,19 +37,20 @@
     return self;
 }
 
+#define DEFAULT_ALLOWABLE_MOVEMENT 1.5
 -(instancetype)initWithCoder:(NSCoder*)coder
 {
     self = [super initWithCoder:coder];
     if (self)
     {
-        _allowableMovement = 1.0;
+        _allowableMovement = DEFAULT_ALLOWABLE_MOVEMENT;
     }
     return self;
 }
 
 -(instancetype)initWithTarget:(id)target action:(SEL)action
 {
-    return [self initWithTarget:target action:action allowableMovement:1.0];
+    return [self initWithTarget:target action:action allowableMovement:DEFAULT_ALLOWABLE_MOVEMENT];
 }
 
 -(void)reset
@@ -150,17 +151,17 @@
         case 1:
         {
             CGFloat stageTransition = event.stageTransition;
-            ATFTGLog(@"Stage 1: set stage transition %f",stageTransition);
+            //ATFTGLog(@"Stage 1: set stage transition %f",stageTransition);
             self.stageTransition = stageTransition;
 
             if (self.state == NSGestureRecognizerStatePossible)
             {
-                ATFTGLog(@"Began");
+                //ATFTGLog(@"Began");
                 self.state = NSGestureRecognizerStateBegan;
             }
             else
             {
-                ATFTGLog(@"Changed");
+                //ATFTGLog(@"Changed");
                 self.state = NSGestureRecognizerStateChanged;
             }
         }
@@ -169,7 +170,7 @@
         //A value of 2 suggests that the user has applied additional pressure beyond what is required for a typical mouse-down event. A stage value of 2 should generally be used to initiate a lookup or immediate action; for example, force clicking (pressing harder) on an element, such as a contact in an email message, to display a Quick Look window or to enter edit mode.
         case 2:
         {
-            ATFTGLog(@"Hit stage two!");
+            //ATFTGLog(@"Hit stage two!");
             self.stageTransition = event.stageTransition;
             self.state = NSGestureRecognizerStateEnded;
         }

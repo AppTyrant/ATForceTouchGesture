@@ -14,6 +14,7 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" userLabel="AppDelegate" customClass="AppDelegate">
             <connections>
+                <outlet property="imageViewForForceClick" destination="Yl3-cU-qZN" id="xXd-Ag-tMa"/>
                 <outlet property="label" destination="fQj-qk-ICX" id="PXR-IA-NmM"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -689,8 +690,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="697" height="391"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="Yl3-cU-qZN">
+                        <rect key="frame" x="88" y="144" width="191" height="169"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <gestureRecognizers>
+                            <gestureRecognizer id="zB6-ce-xSj" customClass="ATForceTouchGesture">
+                                <connections>
+                                    <action selector="forceClickOnImageView:" target="Voe-Tx-rLC" id="uSi-cd-j1m"/>
+                                </connections>
+                            </gestureRecognizer>
+                        </gestureRecognizers>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Bottle" id="dmu-Yj-CTr"/>
+                    </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="fQj-qk-ICX">
-                        <rect key="frame" x="354" y="246" width="146" height="17"/>
+                        <rect key="frame" x="447" y="220" width="146" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Force click me to edit" drawsBackground="YES" id="6pj-fM-Or8">
                             <font key="font" metaFont="system"/>
@@ -710,4 +723,7 @@
             <point key="canvasLocation" x="88.5" y="678.5"/>
         </window>
     </objects>
+    <resources>
+        <image name="Bottle" width="377" height="377"/>
+    </resources>
 </document>
