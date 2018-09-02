@@ -205,7 +205,7 @@
     }
     else
     {
-        ATFTGLog(@"unexpected: _dateOfMouseDown is nil...");
+        ATFTGLog(@"_dateOfMouseDown is nil, must have called timeElapsedSinceMouseDownEvent before the mouseDown event. Returning 0.0");
     }
     return timeSinceMouseDown;
 }
