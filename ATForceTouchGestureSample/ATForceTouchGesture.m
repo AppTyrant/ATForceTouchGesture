@@ -27,12 +27,19 @@
 
 @implementation ATForceTouchGesture
 
+#pragma mark - Initializers
+-(void)_doSetUpOnInitWithAllowableMovement:(CGFloat)allowableMovement
+{
+    _allowableMovement = allowableMovement;
+    _canBeCancelledIfModifierKeyIsDown = YES;
+}
+
 -(instancetype)initWithTarget:(id)target action:(SEL)action allowableMovement:(CGFloat)allowableMovement
 {
     self = [super initWithTarget:target action:action];
     if (self)
     {
-        _allowableMovement = allowableMovement;
+        [self _doSetUpOnInitWithAllowableMovement:allowableMovement];
     }
     return self;
 }
@@ -43,7 +50,7 @@
     self = [super initWithCoder:coder];
     if (self)
     {
-        _allowableMovement = DEFAULT_ALLOWABLE_MOVEMENT;
+        [self _doSetUpOnInitWithAllowableMovement:DEFAULT_ALLOWABLE_MOVEMENT];
     }
     return self;
 }
@@ -53,6 +60,7 @@
     return [self initWithTarget:target action:action allowableMovement:DEFAULT_ALLOWABLE_MOVEMENT];
 }
 
+#pragma mark - Reset
 -(void)reset
 {
     _dateOfMouseDown = nil;
@@ -61,6 +69,7 @@
     [super reset];
 }
 
+#pragma mark - Mouse Events
 -(void)mouseDown:(NSEvent*)event
 {
     NSEventMask associatedEventMask = event.associatedEventsMask;
@@ -85,11 +94,7 @@
         return;
     }
     
-    NSEventModifierFlags eventModifierFlagsClean = (event.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask);
-    BOOL isControlKeyDown = ((eventModifierFlagsClean & NSEventModifierFlagControl) == NSEventModifierFlagControl) ? YES : NO;
-    BOOL isShiftKeyDown = ((eventModifierFlagsClean & NSEventModifierFlagShift) == NSEventModifierFlagShift) ? YES : NO;
-    BOOL isCommandKeyDown = (eventModifierFlagsClean & NSEventModifierFlagCommand) == NSEventModifierFlagCommand ? YES : NO;
-    if (isCommandKeyDown || isShiftKeyDown || isControlKeyDown)
+    if (doesEventHaveModifierKeyDown(event))
     {
         //ATFTGLog(@"Fail because a modifier key is down.");
         self.state = NSGestureRecognizerStateFailed;
@@ -108,6 +113,12 @@
     if (!_isMouseDown)
     {
         ATFTGLog(@"Mouse not down yet. wait.");
+        return;
+    }
+    if (self.canBeCancelledIfModifierKeyIsDown
+        && doesEventHaveModifierKeyDown(event))
+    {
+        [self _doFailOrCancelDependingOnCurrentState];
         return;
     }
     
@@ -196,6 +207,7 @@
     }
 }
 
+#pragma mark - Getters
 -(NSTimeInterval)timeElapsedSinceMouseDownEvent
 {
     NSTimeInterval timeSinceMouseDown = 0.0;
@@ -210,6 +222,7 @@
     return timeSinceMouseDown;
 }
 
+#pragma mark - Private Helper Methods
 -(NSGestureRecognizerState)_doFailOrCancelDependingOnCurrentState
 {
     if (self.state == NSGestureRecognizerStateBegan
@@ -224,6 +237,22 @@
         self.stageTransition = 0.0;
         self.state = NSGestureRecognizerStateFailed;
         return NSGestureRecognizerStateFailed;
+    }
+}
+
+static inline BOOL doesEventHaveModifierKeyDown(NSEvent *event)
+{
+    NSEventModifierFlags eventModifierFlagsClean = (event.modifierFlags & NSEventModifierFlagDeviceIndependentFlagsMask);
+    BOOL isControlKeyDown = ((eventModifierFlagsClean & NSEventModifierFlagControl) == NSEventModifierFlagControl) ? YES : NO;
+    BOOL isShiftKeyDown = ((eventModifierFlagsClean & NSEventModifierFlagShift) == NSEventModifierFlagShift) ? YES : NO;
+    BOOL isCommandKeyDown = (eventModifierFlagsClean & NSEventModifierFlagCommand) == NSEventModifierFlagCommand ? YES : NO;
+    if (isCommandKeyDown || isShiftKeyDown || isControlKeyDown)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
     }
 }
 

@@ -31,4 +31,9 @@
  */
 @property (nonatomic,readonly) NSTimeInterval timeElapsedSinceMouseDownEvent;
 
+/**
+ YES to allow the user to cancel the in-progress gesture recognizer by pressing down either shift, comamnd, or the control key, otherwise NO. @note If shift, command, or the control key is down at the time of mouseDown: the gesture recognizer will fail no matter what this property is set to. Default is YES.
+ */
+@property (nonatomic) IBInspectable BOOL canBeCancelledIfModifierKeyIsDown;
+
 @end
