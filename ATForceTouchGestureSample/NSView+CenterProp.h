@@ -10,4 +10,6 @@
 
 @interface NSView (CenterProp)
 
+@property (nonatomic) CGPoint center;
+
 @end
