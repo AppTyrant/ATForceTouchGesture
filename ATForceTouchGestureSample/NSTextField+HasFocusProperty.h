@@ -10,4 +10,6 @@
 
 @interface NSTextField (HasFocusProperty)
 
+@property (nonatomic,readonly) BOOL doesTextFieldHaveFocus;
+
 @end
