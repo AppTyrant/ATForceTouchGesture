@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA7A334A213BF96E000D5B18 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3349213BF96E000D5B18 /* AppDelegate.m */; };
+		BA7A334C213BF96F000D5B18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA7A334B213BF96F000D5B18 /* Assets.xcassets */; };
+		BA7A334F213BF96F000D5B18 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA7A334D213BF96F000D5B18 /* MainMenu.xib */; };
+		BA7A3352213BF96F000D5B18 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3351213BF96F000D5B18 /* main.m */; };
+		BA7A335C213BF9B1000D5B18 /* ATForceTouchGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A335B213BF9B1000D5B18 /* ATForceTouchGesture.m */; };
+		BA7A335F213C129D000D5B18 /* NSTextField+HasFocusProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A335E213C129D000D5B18 /* NSTextField+HasFocusProperty.m */; };
+		BA7A3363213C13EA000D5B18 /* NSView+CenterProp.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3362213C13EA000D5B18 /* NSView+CenterProp.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BA7A3345213BF96E000D5B18 /* ATForceTouchGestureSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATForceTouchGestureSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA7A3348213BF96E000D5B18 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA7A3349213BF96E000D5B18 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA7A334B213BF96F000D5B18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA7A334E213BF96F000D5B18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BA7A3350213BF96F000D5B18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA7A3351213BF96F000D5B18 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA7A3353213BF96F000D5B18 /* ATForceTouchGestureSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ATForceTouchGestureSample.entitlements; sourceTree = "<group>"; };
+		BA7A335A213BF9B1000D5B18 /* ATForceTouchGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATForceTouchGesture.h; sourceTree = "<group>"; };
+		BA7A335B213BF9B1000D5B18 /* ATForceTouchGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATForceTouchGesture.m; sourceTree = "<group>"; };
+		BA7A335D213C129D000D5B18 /* NSTextField+HasFocusProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextField+HasFocusProperty.h"; sourceTree = "<group>"; };
+		BA7A335E213C129D000D5B18 /* NSTextField+HasFocusProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextField+HasFocusProperty.m"; sourceTree = "<group>"; };
+		BA7A3361213C13EA000D5B18 /* NSView+CenterProp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+CenterProp.h"; sourceTree = "<group>"; };
+		BA7A3362213C13EA000D5B18 /* NSView+CenterProp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+CenterProp.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA7A3342213BF96E000D5B18 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA7A333C213BF96E000D5B18 = {
+			isa = PBXGroup;
+			children = (
+				BA7A3347213BF96E000D5B18 /* ATForceTouchGestureSample */,
+				BA7A3346213BF96E000D5B18 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA7A3346213BF96E000D5B18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A3345213BF96E000D5B18 /* ATForceTouchGestureSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA7A3347213BF96E000D5B18 /* ATForceTouchGestureSample */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A3348213BF96E000D5B18 /* AppDelegate.h */,
+				BA7A3349213BF96E000D5B18 /* AppDelegate.m */,
+				BA7A334D213BF96F000D5B18 /* MainMenu.xib */,
+				BA7A335A213BF9B1000D5B18 /* ATForceTouchGesture.h */,
+				BA7A335B213BF9B1000D5B18 /* ATForceTouchGesture.m */,
+				BA7A3360213C13CE000D5B18 /* Categories */,
+				BA7A3359213BF993000D5B18 /* Supporting Files */,
+			);
+			path = ATForceTouchGestureSample;
+			sourceTree = "<group>";
+		};
+		BA7A3359213BF993000D5B18 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A334B213BF96F000D5B18 /* Assets.xcassets */,
+				BA7A3350213BF96F000D5B18 /* Info.plist */,
+				BA7A3351213BF96F000D5B18 /* main.m */,
+				BA7A3353213BF96F000D5B18 /* ATForceTouchGestureSample.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA7A3360213C13CE000D5B18 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				BA7A335D213C129D000D5B18 /* NSTextField+HasFocusProperty.h */,
+				BA7A335E213C129D000D5B18 /* NSTextField+HasFocusProperty.m */,
+				BA7A3361213C13EA000D5B18 /* NSView+CenterProp.h */,
+				BA7A3362213C13EA000D5B18 /* NSView+CenterProp.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA7A3344213BF96E000D5B18 /* ATForceTouchGestureSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA7A3356213BF96F000D5B18 /* Build configuration list for PBXNativeTarget "ATForceTouchGestureSample" */;
+			buildPhases = (
+				BA7A3341213BF96E000D5B18 /* Sources */,
+				BA7A3342213BF96E000D5B18 /* Frameworks */,
+				BA7A3343213BF96E000D5B18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ATForceTouchGestureSample;
+			productName = ATForceTouchGestureSample;
+			productReference = BA7A3345213BF96E000D5B18 /* ATForceTouchGestureSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA7A333D213BF96E000D5B18 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "ANTHONY CRUZ";
+				TargetAttributes = {
+					BA7A3344213BF96E000D5B18 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = BA7A3340213BF96E000D5B18 /* Build configuration list for PBXProject "ATForceTouchGestureSample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA7A333C213BF96E000D5B18;
+			productRefGroup = BA7A3346213BF96E000D5B18 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA7A3344213BF96E000D5B18 /* ATForceTouchGestureSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA7A3343213BF96E000D5B18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA7A334C213BF96F000D5B18 /* Assets.xcassets in Resources */,
+				BA7A334F213BF96F000D5B18 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA7A3341213BF96E000D5B18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA7A3352213BF96F000D5B18 /* main.m in Sources */,
+				BA7A335C213BF9B1000D5B18 /* ATForceTouchGesture.m in Sources */,
+				BA7A3363213C13EA000D5B18 /* NSView+CenterProp.m in Sources */,
+				BA7A334A213BF96E000D5B18 /* AppDelegate.m in Sources */,
+				BA7A335F213C129D000D5B18 /* NSTextField+HasFocusProperty.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BA7A334D213BF96F000D5B18 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA7A334E213BF96F000D5B18 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA7A3354213BF96F000D5B18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA7A3355213BF96F000D5B18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA7A3357213BF96F000D5B18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ATForceTouchGestureSample/ATForceTouchGestureSample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 67MBVN4X98;
+				INFOPLIST_FILE = ATForceTouchGestureSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = the.great.one.ATForceTouchGestureSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA7A3358213BF96F000D5B18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ATForceTouchGestureSample/ATForceTouchGestureSample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 67MBVN4X98;
+				INFOPLIST_FILE = ATForceTouchGestureSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = the.great.one.ATForceTouchGestureSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA7A3340213BF96E000D5B18 /* Build configuration list for PBXProject "ATForceTouchGestureSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA7A3354213BF96F000D5B18 /* Debug */,
+				BA7A3355213BF96F000D5B18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA7A3356213BF96F000D5B18 /* Build configuration list for PBXNativeTarget "ATForceTouchGestureSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA7A3357213BF96F000D5B18 /* Debug */,
+				BA7A3358213BF96F000D5B18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA7A333D213BF96E000D5B18 /* Project object */;
+}
