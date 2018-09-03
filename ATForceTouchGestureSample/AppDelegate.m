@@ -11,7 +11,7 @@
 #import "NSTextField+HasFocusProperty.h"
 #import "NSView+CenterProp.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <NSGestureRecognizerDelegate>
 
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *label;
@@ -27,17 +27,12 @@
     // Insert code here to initialize your application
     ATForceTouchGesture *forceTouchGesture = [[ATForceTouchGesture alloc]initWithTarget:self action:@selector(startEditingLabelAction:)];
     [self.label addGestureRecognizer:forceTouchGesture];
+    forceTouchGesture.delegate = self;
 }
 
 #pragma mark - Force Click To Edit Label Related Methods
 -(void)startEditingLabelAction:(ATForceTouchGesture*)sender
 {
-    if (self.label.doesTextFieldHaveFocus)
-    {
-        NSLog(@"Ignore pressure event. Text field already editing.");
-        return;
-    }
-    
     switch (sender.state)
     {
         case NSGestureRecognizerStateBegan:
@@ -181,6 +176,28 @@ static NSRect doComputeImageViewRectWithStageTransition(CGFloat stageTransition)
         rectForPop.size.width = width;
         rectForPop.size.height = height;
         return rectForPop;
+    }
+}
+
+#pragma mark - NSGestureRecognizerDelegate
+-(BOOL)gestureRecognizerShouldBegin:(NSGestureRecognizer*)gestureRecognizer
+{
+    if (gestureRecognizer.view == self.label
+        && [gestureRecognizer isKindOfClass:[ATForceTouchGesture class]])
+    {
+        if (!self.label.doesTextFieldHaveFocus)
+        {
+            return YES;
+        }
+        else
+        {
+            NSLog(@"Ignore pressure event. Text field already editing.");
+            return NO;
+        }
+    }
+    else
+    {
+        return YES;
     }
 }
 
