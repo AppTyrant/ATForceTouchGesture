@@ -36,4 +36,18 @@
  */
 @property (nonatomic) IBInspectable BOOL canBeCancelledIfModifierKeyIsDown;
 
+/**
+@brief The required amount of time since mouse down that needs to pass before the gesture recognizer can enter the began state.
+@discussion If the target view also handles other mouse events (for example, if mouse dragging on the view can start a dragging session), you may want to set this to property to small value so this gesture won't swallow other events if the view is only lightly pressed for a short period of time (you also probably need to set delaysPrimaryMouseButtonEvents to YES as well). You can experiment with this value a bit to get the right sensitivity. Assuming delaysPrimaryMouseButtonEvents is set to YES, once the gesture enters the began phase, it will swallow other mouse events, even if it is later cancelled (my experience on 10.13.6).
+ @note This value is only used during stage 1 of the pressure event. If stage 2 is hit even before this threshold is met the gesture sets its state to NSGestureRecognizerStateEnded. See also: minimumRequiredStageTransitionToEnterBeganPhase.
+ */
+@property (nonatomic) NSTimeInterval requiredAmountOfTimeSinceMouseDownToEnterBeganPhase;
+
+/**
+@brief The minimum value the stageTransition property must reach before the gesture recognizer can enter the began state.
+@discussion If the target view also handles other mouse events (for example, if mouse dragging on the view can start a dragging session), you may want to set this to property to small value so this gesture won't swallow other events if the view is only lightly pressed on for a short period of time (you also probably need to set delaysPrimaryMouseButtonEvents to YES as well). You can experiment with this value a bit to get the right sensitivity. Assuming delaysPrimaryMouseButtonEvents is set to YES, once the gesture enters the began phase, it will swallow other mouse events, even if it is later cancelled (my experience on 10.13.6).
+ @note This value is only used during stage 1 of the pressure event. If stage 2 is hit even before this threshold is met the gesture sets its state to NSGestureRecognizerStateEnded. See also: requiredAmountOfTimeSinceMouseDownToEnterBeganPhase.
+ */
+@property (nonatomic) CGFloat minimumRequiredStageTransitionToEnterBeganPhase;
+
 @end

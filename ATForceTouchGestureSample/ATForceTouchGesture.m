@@ -14,6 +14,9 @@
 #define ATFTGLog(s,...)
 #endif
 
+#define DEFAULT_REQUIRED_AMOUNT_OF_TIMESINCE_MOUSEDOWN_TO_ENTER_BEGAN_PHASE 0.4
+#define DEFAULT_MINIMUM_REQUIRED_STAGE_TRANSITION_TO_ENTER_BEGAN_PHASE 0.1
+
 @interface ATForceTouchGesture()
 {
     NSDate *_dateOfMouseDown;
@@ -32,6 +35,8 @@
 {
     _allowableMovement = allowableMovement;
     _canBeCancelledIfModifierKeyIsDown = YES;
+    _requiredAmountOfTimeSinceMouseDownToEnterBeganPhase = DEFAULT_REQUIRED_AMOUNT_OF_TIMESINCE_MOUSEDOWN_TO_ENTER_BEGAN_PHASE;
+    _minimumRequiredStageTransitionToEnterBeganPhase = DEFAULT_MINIMUM_REQUIRED_STAGE_TRANSITION_TO_ENTER_BEGAN_PHASE;
 }
 
 -(instancetype)initWithTarget:(id)target action:(SEL)action allowableMovement:(CGFloat)allowableMovement
@@ -164,11 +169,14 @@
             CGFloat stageTransition = event.stageTransition;
             //ATFTGLog(@"Stage 1: set stage transition %f",stageTransition);
             self.stageTransition = stageTransition;
-
+            
             if (self.state == NSGestureRecognizerStatePossible)
             {
-                //ATFTGLog(@"Began");
-                self.state = NSGestureRecognizerStateBegan;
+                if ([self _shouldGestureEnterBeganPhaseCheckTimeAndStageTransitionConstraintsWithStageTransition:stageTransition])
+                {
+                    //ATFTGLog(@"Began");
+                    self.state = NSGestureRecognizerStateBegan;
+                }
             }
             else
             {
@@ -252,6 +260,38 @@ static inline BOOL doesEventHaveModifierKeyDown(NSEvent *event)
     }
     else
     {
+        return NO;
+    }
+}
+
+-(BOOL)_shouldGestureEnterBeganPhaseCheckTimeAndStageTransitionConstraintsWithStageTransition:(CGFloat)stageTransition
+{
+    if (self.state == NSGestureRecognizerStatePossible)
+    {
+        if (self.requiredAmountOfTimeSinceMouseDownToEnterBeganPhase > 0.0)
+        {
+            NSTimeInterval timeElapsedSinceMouseDown = self.timeElapsedSinceMouseDownEvent;
+            if (timeElapsedSinceMouseDown < self.requiredAmountOfTimeSinceMouseDownToEnterBeganPhase)
+            {
+                ATFTGLog(@"Don't enter began state because requiredAmountOfTimeSinceMouseDownToEnterBeganPhase threshold (%f) has not been met yet. Give the gesture more time to fail.",self.requiredAmountOfTimeSinceMouseDownToEnterBeganPhase);
+                return NO;
+            }
+        }
+        if (self.minimumRequiredStageTransitionToEnterBeganPhase > 0.0)
+        {
+            if (stageTransition < self.minimumRequiredStageTransitionToEnterBeganPhase)
+            {
+                ATFTGLog(@"Don't enter began state because minimumRequiredStageTransitionToEnterBeganPhase threshold (%f) has not been met yet. Give the gesture more time to fail.",self.minimumRequiredStageTransitionToEnterBeganPhase);
+                return NO;
+            }
+        }
+        
+        //If we are here, we can enter the began phase. 
+        return YES;
+    }
+    else
+    {
+        //If state is no longer possible, we already began.
         return NO;
     }
 }
