@@ -8,9 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class ATForceTouchGesture;
+
 @protocol ATForceTouchGestureDelegate <NSGestureRecognizerDelegate>
 
-
+@optional
+/**
+ Sent to the delegate when there is a pressure event on the view but the gesture has not yet met the constraints set to enter the began phase and therefore is still in the possible state (see the requiredAmountOfTimeSinceMouseDownToEnterBeganPhase and minimumRequiredStageTransitionToEnterBeganPhase properties below). The delegate may want to implement this method to do view highlighting or table view row selection, especially if delaysPrimaryMouseButtonEvents is YES.
+ */
+-(void)forceTouchGesture:(ATForceTouchGesture*)forceTouchGesture receivedPressureEventNotMeetingBeganStateConstraints:(NSEvent*)pressureEvent;
 
 @end
 

@@ -173,9 +173,10 @@
             
             if (self.state == NSGestureRecognizerStatePossible)
             {
-                if ([self _shouldGestureEnterBeganPhaseCheckTimeAndStageTransitionConstraintsWithStageTransition:stageTransition])
+                if ([self _shouldGestureEnterBeganPhaseCheckTimeAndStageTransitionConstraintsWithStageTransition:stageTransition
+                                                                                                   pressureEvent:event])
                 {
-                    //ATFTGLog(@"Began");
+                    ATFTGLog(@"Began");
                     self.state = NSGestureRecognizerStateBegan;
                 }
             }
@@ -266,6 +267,7 @@ static inline BOOL doesEventHaveModifierKeyDown(NSEvent *event)
 }
 
 -(BOOL)_shouldGestureEnterBeganPhaseCheckTimeAndStageTransitionConstraintsWithStageTransition:(CGFloat)stageTransition
+                                                                                pressureEvent:(NSEvent*)pressureEvent
 {
     if (self.state == NSGestureRecognizerStatePossible)
     {
@@ -275,6 +277,12 @@ static inline BOOL doesEventHaveModifierKeyDown(NSEvent *event)
             if (timeElapsedSinceMouseDown < self.requiredAmountOfTimeSinceMouseDownToEnterBeganPhase)
             {
                 ATFTGLog(@"Don't enter began state because requiredAmountOfTimeSinceMouseDownToEnterBeganPhase threshold (%f) has not been met yet. Give the gesture more time to fail.",self.requiredAmountOfTimeSinceMouseDownToEnterBeganPhase);
+                
+                if ([self.delegate respondsToSelector:@selector(forceTouchGesture:receivedPressureEventNotMeetingBeganStateConstraints:)])
+                {
+                    [self.delegate forceTouchGesture:self receivedPressureEventNotMeetingBeganStateConstraints:pressureEvent];
+                }
+                
                 return NO;
             }
         }
@@ -283,6 +291,12 @@ static inline BOOL doesEventHaveModifierKeyDown(NSEvent *event)
             if (stageTransition < self.minimumRequiredStageTransitionToEnterBeganPhase)
             {
                 ATFTGLog(@"Don't enter began state because minimumRequiredStageTransitionToEnterBeganPhase threshold (%f) has not been met yet. Give the gesture more time to fail.",self.minimumRequiredStageTransitionToEnterBeganPhase);
+                
+                if ([self.delegate respondsToSelector:@selector(forceTouchGesture:receivedPressureEventNotMeetingBeganStateConstraints:)])
+                {
+                    [self.delegate forceTouchGesture:self receivedPressureEventNotMeetingBeganStateConstraints:pressureEvent];
+                }
+                
                 return NO;
             }
         }
