@@ -14,8 +14,6 @@
         <customObject id="-3" userLabel="Application"/>
         <customObject id="Voe-Tx-rLC" userLabel="AppDelegate" customClass="AppDelegate">
             <connections>
-                <outlet property="imageViewForForceClick" destination="Yl3-cU-qZN" id="xXd-Ag-tMa"/>
-                <outlet property="label" destination="fQj-qk-ICX" id="PXR-IA-NmM"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -696,7 +694,7 @@
                         <gestureRecognizers>
                             <gestureRecognizer id="zB6-ce-xSj" customClass="ATForceTouchGesture">
                                 <connections>
-                                    <action selector="forceClickOnImageView:" target="Voe-Tx-rLC" id="uSi-cd-j1m"/>
+                                    <action selector="forceClickOnImageView:" target="Svc-2U-cAo" id="ANB-At-tha"/>
                                 </connections>
                             </gestureRecognizer>
                         </gestureRecognizers>
@@ -715,13 +713,20 @@
                 <gestureRecognizers>
                     <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="imM-ks-zm7">
                         <connections>
-                            <action selector="windowBackgroundClicked:" target="Voe-Tx-rLC" id="01x-Za-7vX"/>
+                            <action selector="windowBackgroundClicked:" target="Svc-2U-cAo" id="GE7-Gs-C1I"/>
                         </connections>
                     </clickGestureRecognizer>
                 </gestureRecognizers>
             </view>
             <point key="canvasLocation" x="88.5" y="678.5"/>
         </window>
+        <viewController id="Svc-2U-cAo" customClass="SampleForceTouchGestureViewController">
+            <connections>
+                <outlet property="imageViewForForceClick" destination="Yl3-cU-qZN" id="Zzu-df-u2H"/>
+                <outlet property="label" destination="fQj-qk-ICX" id="hsQ-rH-2FC"/>
+                <outlet property="view" destination="EiT-Mj-1SZ" id="5UT-Df-s7h"/>
+            </connections>
+        </viewController>
     </objects>
     <resources>
         <image name="Bottle" width="377" height="377"/>
