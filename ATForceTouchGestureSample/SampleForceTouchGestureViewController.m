@@ -11,7 +11,10 @@
 #import "NSTextField+HasFocusProperty.h"
 #import "NSView+CenterProp.h"
 
-@interface SampleForceTouchGestureViewController () <ATForceTouchGestureDelegate>
+@interface SampleForceTouchGestureViewController () <ATForceTouchGestureDelegate,NSDraggingSource>
+{
+    NSDraggingSession *_currentDraggingSession;
+}
 
 @property (weak) IBOutlet NSTextField *label;
 @property (weak) IBOutlet NSImageView *imageViewForForceClick;
@@ -210,6 +213,52 @@ static NSRect doComputeImageViewRectWithStageTransition(CGFloat stageTransition)
         _bottleSound = [NSSound soundNamed:@"Bottle"];
     }
     return _bottleSound;
+}
+
+#pragma mark - Mouse Down Event to Start Dragging Session
+-(void)mouseDown:(NSEvent*)event
+{
+    //This should only get called if the image view's force touch gesture fails because the image view's force touch gesture has delaysPrimaryMouseButtonEvents set to YES. Once the force touch gesture begins it will swallow the dragging session. If the force touch gesture fails, starting this dragging session becomes possible (Finder seems to have similiar behavior).
+    if (_currentDraggingSession != nil)
+    {
+        NSLog(@"Already dragging.");
+        return;
+    }
+    
+    NSPoint locationInView = [self.view convertPoint:event.locationInWindow fromView:nil];
+    if (NSPointInRect(locationInView, self.imageViewForForceClick.frame))
+    {
+        NSImage *image = self.imageViewForForceClick.image;
+        NSDraggingItem *dragItem = [[NSDraggingItem alloc]initWithPasteboardWriter:image];
+        [dragItem setDraggingFrame:self.imageViewForForceClick.bounds contents:image];
+        
+        NSDraggingSession *draggingSession = [self.imageViewForForceClick beginDraggingSessionWithItems:@[dragItem]
+                                                                                                  event:event
+                                                                                                 source:self];
+        _currentDraggingSession = draggingSession;
+    }
+    else
+    {
+        //NSLog(@"mouse down outside image view. Ignore");
+    }
+}
+
+#pragma mark - NSDraggingSource
+-(NSDragOperation)draggingSession:(NSDraggingSession*)session sourceOperationMaskForDraggingContext:(NSDraggingContext)context
+{
+    return NSDragOperationCopy;
+}
+
+-(void)draggingSession:(NSDraggingSession*)session
+          endedAtPoint:(NSPoint)screenPoint
+             operation:(NSDragOperation)operation
+{
+    _currentDraggingSession = nil;
+}
+
+-(BOOL)ignoreModifierKeysForDraggingSession:(NSDraggingSession *)session
+{
+    return YES;
 }
 
 @end

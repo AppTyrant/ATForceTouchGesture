@@ -692,7 +692,7 @@
                         <rect key="frame" x="88" y="144" width="191" height="169"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <gestureRecognizers>
-                            <gestureRecognizer id="zB6-ce-xSj" customClass="ATForceTouchGesture">
+                            <gestureRecognizer delaysPrimaryMouseButtonEvents="YES" id="zB6-ce-xSj" customClass="ATForceTouchGesture">
                                 <connections>
                                     <action selector="forceClickOnImageView:" target="Svc-2U-cAo" id="ANB-At-tha"/>
                                 </connections>
