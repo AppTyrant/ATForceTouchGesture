@@ -29,6 +29,7 @@
 @end
 
 @implementation ATForceTouchGesture
+@dynamic delegate;
 
 #pragma mark - Initializers
 -(void)_doSetUpOnInitWithAllowableMovement:(CGFloat)allowableMovement

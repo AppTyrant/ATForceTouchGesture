@@ -8,6 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
+@protocol ATForceTouchGestureDelegate <NSGestureRecognizerDelegate>
+
+
+
+@end
+
 @interface ATForceTouchGesture : NSGestureRecognizer
 
 -(instancetype)initWithTarget:(id)target
@@ -49,5 +55,8 @@
  @note This value is only used during stage 1 of the pressure event. If stage 2 is hit even before this threshold is met the gesture sets its state to NSGestureRecognizerStateEnded. See also: requiredAmountOfTimeSinceMouseDownToEnterBeganPhase.
  */
 @property (nonatomic) CGFloat minimumRequiredStageTransitionToEnterBeganPhase;
+
+/* the gesture recognizer's delegate */
+@property (nullable, weak) id <ATForceTouchGestureDelegate> delegate;
 
 @end
