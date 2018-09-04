@@ -14,6 +14,7 @@
 		BA7A335C213BF9B1000D5B18 /* ATForceTouchGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A335B213BF9B1000D5B18 /* ATForceTouchGesture.m */; };
 		BA7A335F213C129D000D5B18 /* NSTextField+HasFocusProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A335E213C129D000D5B18 /* NSTextField+HasFocusProperty.m */; };
 		BA7A3363213C13EA000D5B18 /* NSView+CenterProp.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3362213C13EA000D5B18 /* NSView+CenterProp.m */; };
+		BA7A336B213EC106000D5B18 /* SampleForceTouchGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7A336A213EC106000D5B18 /* SampleForceTouchGestureViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		BA7A335E213C129D000D5B18 /* NSTextField+HasFocusProperty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextField+HasFocusProperty.m"; sourceTree = "<group>"; };
 		BA7A3361213C13EA000D5B18 /* NSView+CenterProp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+CenterProp.h"; sourceTree = "<group>"; };
 		BA7A3362213C13EA000D5B18 /* NSView+CenterProp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+CenterProp.m"; sourceTree = "<group>"; };
+		BA7A3369213EC106000D5B18 /* SampleForceTouchGestureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleForceTouchGestureViewController.h; sourceTree = "<group>"; };
+		BA7A336A213EC106000D5B18 /* SampleForceTouchGestureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleForceTouchGestureViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +66,11 @@
 		BA7A3347213BF96E000D5B18 /* ATForceTouchGestureSample */ = {
 			isa = PBXGroup;
 			children = (
+				BA7A334D213BF96F000D5B18 /* MainMenu.xib */,
 				BA7A3348213BF96E000D5B18 /* AppDelegate.h */,
 				BA7A3349213BF96E000D5B18 /* AppDelegate.m */,
-				BA7A334D213BF96F000D5B18 /* MainMenu.xib */,
+				BA7A3369213EC106000D5B18 /* SampleForceTouchGestureViewController.h */,
+				BA7A336A213EC106000D5B18 /* SampleForceTouchGestureViewController.m */,
 				BA7A335A213BF9B1000D5B18 /* ATForceTouchGesture.h */,
 				BA7A335B213BF9B1000D5B18 /* ATForceTouchGesture.m */,
 				BA7A3360213C13CE000D5B18 /* Categories */,
@@ -165,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7A336B213EC106000D5B18 /* SampleForceTouchGestureViewController.m in Sources */,
 				BA7A3352213BF96F000D5B18 /* main.m in Sources */,
 				BA7A335C213BF9B1000D5B18 /* ATForceTouchGesture.m in Sources */,
 				BA7A3363213C13EA000D5B18 /* NSView+CenterProp.m in Sources */,
