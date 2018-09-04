@@ -25,6 +25,8 @@
 {
     [super viewDidLoad];
     ATForceTouchGesture *forceTouchGesture = [[ATForceTouchGesture alloc]initWithTarget:self action:@selector(startEditingLabelAction:)];
+    forceTouchGesture.requiredAmountOfTimeSinceMouseDownToEnterBeganPhase = 0.0;
+    forceTouchGesture.minimumRequiredStageTransitionToEnterBeganPhase = 0.0;
     [self.label addGestureRecognizer:forceTouchGesture];
     forceTouchGesture.delegate = self;
 }
