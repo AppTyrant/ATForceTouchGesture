@@ -16,17 +16,17 @@
 /**
  Sent to the delegate when there is a pressure event on the view but the gesture has not yet met the constraints set to enter the began phase and therefore is still in the possible state (see the requiredAmountOfTimeSinceMouseDownToEnterBeganPhase and minimumRequiredStageTransitionToEnterBeganPhase properties below). The delegate may want to implement this method to do view highlighting or table view row selection, especially if delaysPrimaryMouseButtonEvents is YES.
  */
--(void)forceTouchGesture:(ATForceTouchGesture*)forceTouchGesture receivedPressureEventNotMeetingBeganStateConstraints:(NSEvent*)pressureEvent;
+-(void)forceTouchGesture:(nonnull ATForceTouchGesture*)forceTouchGesture receivedPressureEventNotMeetingBeganStateConstraints:(nonnull NSEvent*)pressureEvent;
 
 @end
 
 @interface ATForceTouchGesture : NSGestureRecognizer
 
--(instancetype)initWithTarget:(id)target
-                       action:(SEL)action
-            allowableMovement:(CGFloat)allowableMovement NS_DESIGNATED_INITIALIZER;
+-(nonnull instancetype)initWithTarget:(nullable id)target
+                               action:(nullable SEL)action
+                    allowableMovement:(CGFloat)allowableMovement NS_DESIGNATED_INITIALIZER;
 
--(instancetype)initWithCoder:(NSCoder*)coder NS_DESIGNATED_INITIALIZER;
+-(nullable instancetype)initWithCoder:(nonnull NSCoder*)coder NS_DESIGNATED_INITIALIZER;
 
 /**
  As pressure increases for the gesture and a new stage approaches, this property provides a value between 0 and 1, indicating the approach of the next stage. When pressure is reduced for the gesture and a new stage is approached, this property provides a value between 0 and -1, indicating the approach of the current stage’s release.
