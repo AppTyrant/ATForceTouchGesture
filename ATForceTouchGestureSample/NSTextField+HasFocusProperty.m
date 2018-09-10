@@ -26,10 +26,10 @@
     }
     
     NSTextView *fieldEditorTextView = firstResponder;
-    id searchField = self;
+    id myself = self;
     
     if ([window fieldEditor:NO forObject:self] == fieldEditorTextView
-        && fieldEditorTextView.delegate == searchField)
+        && fieldEditorTextView.delegate == myself)
     {
         return YES;
     }
