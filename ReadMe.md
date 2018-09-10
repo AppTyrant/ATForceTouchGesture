@@ -4,3 +4,9 @@ ATForceTouchGesture is a simple subclass of NSGestureRecognizer that can be used
 
 
 ![GIF of the force click gesture in the sample project.](https://github.com/AppTyrant/ATForceTouchGesture/blob/master/ATForceTouchGestureSample/ForceClickToEditGIF.gif "ATForceTouchGesture")
+
+### Requirements for testing:
+-A Mac and a Force Touch trackpad.
+
+#### Developer's Website:
+[AppTyrant.com](http://AppTyrant.com)
